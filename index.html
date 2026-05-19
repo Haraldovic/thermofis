@@ -85,12 +85,12 @@
   --serif:'Fraunces',Georgia,serif;
   --sans:'Manrope',-apple-system,system-ui,sans-serif;
   --container:1320px;
-  --sd-photo-1:url(__CSS_IMG_0__);
-  --sd-photo-2:url(__CSS_IMG_1__);
-  --sd-photo-3:url(__CSS_IMG_2__);
-  --sd-photo-4:url(__CSS_IMG_3__);
-  --sd-photo-5:url(__CSS_IMG_4__);
-  --sd-photo-6:url(__CSS_IMG_5__);
+  --sd-photo-1:url(assets/work-2.jpg);
+  --sd-photo-2:url(assets/work-3.jpg);
+  --sd-photo-3:url(assets/work-4.jpg);
+  --sd-photo-4:url(assets/work-5.jpg);
+  --sd-photo-5:url(assets/work-8.jpg);
+  --sd-photo-6:url(assets/work-6.jpg);
   --radius:18px;
   --radius-lg:28px;
 }
@@ -401,9 +401,9 @@ h2.section-title em{font-style:italic;color:var(--accent-deep);font-weight:300}
 .icon-cream{background:var(--accent-light);color:var(--accent-deep)}
 
 /* Bento Bilder als Hintergrund */
-.bento-card.bg-photo-1::before{background-image:url(__CSS_IMG_0__)}
-.bento-card.bg-photo-2::before{background-image:url(__CSS_IMG_3__)}
-.bento-card.bg-photo-3::before{background-image:url(__CSS_IMG_4__)}
+.bento-card.bg-photo-1::before{background-image:url(assets/work-2.jpg)}
+.bento-card.bg-photo-2::before{background-image:url(assets/work-5.jpg)}
+.bento-card.bg-photo-3::before{background-image:url(assets/work-8.jpg)}
 .bento-card.bg-photo-fam::before{background-image:url()}
 .icon-dark{background:rgba(201,166,135,.2);color:var(--accent)}
 .icon-pink{background:#F5E1DA;color:#B08977}
@@ -1072,7 +1072,7 @@ h2.section-title em{font-style:italic;color:var(--accent-deep);font-weight:300}
 <header class="site-header">
   <div class="header-inner">
     <a href="#home" class="logo-wrap">
-      <div class="logo-mark"><img src="" alt="Salon Ebruli"></div>
+      <div class="logo-mark"><img src="assets/logo.png" alt="Salon Ebruli"></div>
       <div class="logo-text">
         <span class="name">Salon Ebruli</span>
         <span class="sub">Hair & Beauty</span>
@@ -1112,7 +1112,7 @@ h2.section-title em{font-style:italic;color:var(--accent-deep);font-weight:300}
       </div>
       <div class="hero-visual">
         <div class="big-logo">
-          <img src="" alt="Salon Ebruli — Hair & Beauty" style="width:100%;max-width:340px;height:auto;display:block">
+          <img src="assets/logo.png" alt="Salon Ebruli — Hair & Beauty" style="width:100%;max-width:340px;height:auto;display:block">
         </div>
         <div class="hero-rating">
           <div>
@@ -2009,7 +2009,7 @@ h2.section-title em{font-style:italic;color:var(--accent-deep);font-weight:300}
 
 <script>
 // ── EMBEDDED IMAGES (deduplicated) ──
-const __IMG = ["","","","","","",""];
+const __IMG = ["assets/work-2.jpg", "assets/work-3.jpg", "assets/work-4.jpg", "assets/work-5.jpg", "assets/work-8.jpg", "assets/work-6.jpg", "assets/work-7.jpg"];
 
 function __applyImages(){
   // 1. Replace <img data-img-id="N"> with actual src
