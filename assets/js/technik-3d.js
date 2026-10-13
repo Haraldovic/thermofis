@@ -333,10 +333,40 @@
     this.listen(this.root,'click',function(event){const tab=event.target.closest('[data-tech-tab]'),component=event.target.closest('[data-tech-component]'),action=event.target.closest('[data-tech-action]');if(tab){self.setMode(tab.dataset.techTab);return;}if(component){self.select(+component.dataset.techComponent);return;}if(action)self.action(action.dataset.techAction);});
     this.listen(this.root.querySelector('[role=tablist]'),'keydown',function(event){if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;const tabs=Array.from(self.root.querySelectorAll('[data-tech-tab]')),current=tabs.findIndex(t=>t.dataset.techTab===self.mode),next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(current+(event.key==='ArrowRight'?1:tabs.length-1))%tabs.length;event.preventDefault();self.setMode(tabs[next].dataset.techTab);tabs[next].focus();});
     this.listen(this.view,'keydown',function(event){if(event.target!==self.view)return;self.visible=true;const keys=['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home'];if(!keys.includes(event.key))return;event.preventDefault();if(event.key==='Home')self.reset();else{if(event.key==='ArrowLeft')self.yaw-=.13;if(event.key==='ArrowRight')self.yaw+=.13;if(event.key==='ArrowUp')self.pitch=clamp(self.pitch+.09,-.34,.68);if(event.key==='ArrowDown')self.pitch=clamp(self.pitch-.09,-.34,.68);}self.schedule(true);});
-    this.listen(this.canvas,'pointerdown',function(event){if(event.button!==0)return;self.visible=true;self.drag={x:event.clientX,y:event.clientY,lastX:event.clientX,lastY:event.clientY,moved:false};if(typeof self.canvas.setPointerCapture==='function')try{self.canvas.setPointerCapture(event.pointerId);}catch(_){};});
-    this.listen(this.canvas,'pointermove',function(event){if(!self.drag)return;const d=self.drag;if(Math.hypot(event.clientX-d.x,event.clientY-d.y)>6)d.moved=true;if(d.moved){self.yaw+=(event.clientX-d.lastX)*.007;self.pitch=clamp(self.pitch+(event.clientY-d.lastY)*.004,-.34,.68);self.view.classList.add('is-dragging');const hint=self.root.querySelector('[data-tech-hint]');if(hint)hint.style.opacity='.35';self.schedule(true);}d.lastX=event.clientX;d.lastY=event.clientY;});
-    this.listen(this.canvas,'pointerup',function(event){if(!self.drag)return;if(!self.drag.moved){const rect=self.canvas.getBoundingClientRect(),x=event.clientX-rect.left,y=event.clientY-rect.top;let closest=null;self.hotspots.forEach(h=>{const dist=Math.hypot(x-h.x,y-h.y);if(dist<25&&(!closest||dist<closest.dist))closest={index:h.index,dist};});if(closest)self.select(closest.index);}self.drag=null;self.view.classList.remove('is-dragging');});
-    this.listen(this.canvas,'pointercancel',()=>{self.drag=null;self.view.classList.remove('is-dragging');});
+    const preventPan=function(event){if(event.cancelable&&typeof event.preventDefault==='function')event.preventDefault();};
+    const ownsPointer=function(event){return self.drag&&(event.pointerId===undefined||event.pointerId===self.drag.pointerId);};
+    const finishDrag=function(event){
+      if(!ownsPointer(event))return;
+      const pointerId=self.drag.pointerId;
+      self.drag=null;
+      self.view.classList.remove('is-dragging');
+      const hint=self.root.querySelector('[data-tech-hint]');if(hint)hint.style.opacity='';
+      if(typeof self.canvas.releasePointerCapture==='function')try{self.canvas.releasePointerCapture(pointerId);}catch(_){}
+    };
+    this.listen(this.canvas,'pointerdown',function(event){
+      if(event.button!==0||event.isPrimary===false||self.drag)return;
+      preventPan(event);self.visible=true;
+      self.drag={pointerId:event.pointerId,x:event.clientX,y:event.clientY,lastX:event.clientX,lastY:event.clientY,moved:false};
+      if(typeof self.canvas.setPointerCapture==='function')try{self.canvas.setPointerCapture(event.pointerId);}catch(_){}
+    },{passive:false});
+    this.listen(this.canvas,'pointermove',function(event){
+      if(!ownsPointer(event))return;
+      preventPan(event);const d=self.drag;
+      if(Math.hypot(event.clientX-d.x,event.clientY-d.y)>6)d.moved=true;
+      if(d.moved){self.yaw+=(event.clientX-d.lastX)*.007;self.pitch=clamp(self.pitch+(event.clientY-d.lastY)*.004,-.34,.68);self.view.classList.add('is-dragging');const hint=self.root.querySelector('[data-tech-hint]');if(hint)hint.style.opacity='.35';self.schedule(true);}
+      d.lastX=event.clientX;d.lastY=event.clientY;
+    },{passive:false});
+    this.listen(this.canvas,'pointerup',function(event){
+      if(!ownsPointer(event))return;
+      preventPan(event);
+      if(!self.drag.moved){const rect=self.canvas.getBoundingClientRect(),x=event.clientX-rect.left,y=event.clientY-rect.top;let closest=null;self.hotspots.forEach(h=>{const dist=Math.hypot(x-h.x,y-h.y);if(dist<25&&(!closest||dist<closest.dist))closest={index:h.index,dist};});if(closest)self.select(closest.index);}
+      finishDrag(event);
+    },{passive:false});
+    this.listen(this.canvas,'pointercancel',finishDrag);
+    this.listen(this.canvas,'lostpointercapture',finishDrag);
+    // Local fallback for touch browsers; never lock scrolling on the body/document.
+    this.listen(this.canvas,'touchmove',function(event){if(self.drag)preventPan(event);},{passive:false});
+    this.listen(window,'blur',()=>finishDrag({}));
   };
   Studio.prototype.resize=function(force=false){if(this.destroyed)return;const r=this.view.getBoundingClientRect();if(!r.width||!r.height){if(this.resizeRetries++<20)requestAnimationFrame(()=>this.resize(true));return;}this.resizeRetries=0;this.width=r.width;this.height=r.height;const dpr=Math.min(window.devicePixelRatio||1,2);this.canvas.width=Math.round(r.width*dpr);this.canvas.height=Math.round(r.height*dpr);this.ctx.setTransform(dpr,0,0,dpr,0,0);this.schedule(force);};
   Studio.prototype.reset=function(){this.yaw=this.mode==='floor'?-.5:-.44;this.pitch=this.mode==='floor'?.48:.16;};
@@ -403,6 +433,6 @@
   const instances=new Map();
   function init(scope=document){scope.querySelectorAll('[data-tf-3d]').forEach(root=>{if(!instances.has(root))instances.set(root,new Studio(root));});return Array.from(instances.values());}
   // Optional integration API; automatic initialization is sufficient for static HTML.
-  window.ThermofisTechnik3D={init,destroy:function(root){const instance=instances.get(root);if(instance){instance.destroy();instances.delete(root);}},version:'1.2.0'};
+  window.ThermofisTechnik3D={init,destroy:function(root){const instance=instances.get(root);if(instance){instance.destroy();instances.delete(root);}},version:'1.2.1'};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>init(),{once:true});else init();
 })();

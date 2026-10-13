@@ -1,4 +1,4 @@
-# Thermofis – überarbeitete Website, Vorschau vom 13.10.2026 – Revision 3
+# Thermofis – überarbeitete Website, Vorschau vom 13.10.2026 – Revision 4
 
 Die Online-Website wurde nicht verändert. Dieses Paket ist eine separate Entwurfsversion. Die ursprüngliche ZIP bleibt erhalten.
 
@@ -8,7 +8,7 @@ Die Online-Website wurde nicht verändert. Dieses Paket ist eine separate Entwur
 - Gemeinsame CSS-Dateien, kompaktere Navigation, bessere Lesbarkeit auf kleinen Bildschirmen, Tastaturfokus, verständliche Formularlabels und Rücksicht auf reduzierte Bewegung.
 - Sieben drehbare 3D-Schemata: Luft-Wasser-Wärmepumpe, Fußbodenheizung, indirekter Trinkwasserspeicher, hydraulischer Abgleich, Gas-Brennwertgerät, Öl-Brennwertkessel mit Tank und Enthärtungsanlage mit Regeneration. Bauteile auswählen, auseinanderziehen und Wärme-/Wasserflüsse starten. Lokale Geometrie und Animation, keine externen Modelle/CDNs oder WebGL-Abhängigkeit.
 - Wärmepumpen-Budget und Fußbodenheizungs-Kalkulation mit optionalem Förderszenario. Bruttopreise einschließlich 19 % USt., deutsche Zahlformatierung, nachvollziehbare Rechnung, E-Mail-Entwurf und Druck/PDF-Funktion.
-- Echte Google-Review-Anbindung als vorbereiteter PHP-Endpunkt; ohne Inhaber-Verbindung erscheint ein neutraler Google-Link, keine erfundenen Zitate oder Bewertungen.
+- Echte Google-Review-Anbindung als vorbereiteter PHP-Endpunkt; die Startseite zeigt direkt gestaltete Bewertungskarten. Ohne Inhaber-Verbindung sind diese ausdrücklich als Layoutvorschau ohne echte Rezensionen gekennzeichnet. Es werden keine Kundennamen, Sterne-Durchschnitte oder Zitate erfunden.
 - Aktualisierte, eng begrenzte Fördertextkorrekturen: KfW statt BAFA beim Heizungstausch, private Antragstellung und Vertrag mit Förderbedingung, keine pauschale PV-Kostenfreiheit; geschlossene Zuschussförderung 455-B nicht mehr versprochen.
 - Karten laden erst nach Einwilligung. Seiten ohne Karte zeigen keinen unnötigen Karten-Cookie-Banner.
 
@@ -69,7 +69,7 @@ Recherche mit amtlichen Quellen steht in `FOERDERQUELLEN.md`; technische Google-
 
 Das vorhandene Foto des Firmenautos liegt dezent hinter dem Hero-Text. Die Hausillustration wird dort nicht mehr angezeigt. Der Kopfbereich zeigt das vollständige vorhandene Logo; mobile Überschriften und Abstände sind einheitlicher, der schwebende Anrufbutton ist kleiner und pulsiert nicht mehr.
 
-Die Marken stehen wieder in einer einzigen horizontalen Leiste. Sie lässt sich nativ mit dem Finger verschieben und läuft bei aktiviertem JavaScript automatisch. Berühren, Mauszeiger und Tastaturfokus zeigen das farbige Original-Logo. Der Lauf ist pausierbar und stoppt bei direkter Bedienung sowie bei reduzierter Bewegung. Das mobile Menü verwendet HTML-Details und lässt sich auch ohne JavaScript öffnen.
+Die Marken stehen in einer einzigen horizontalen Leiste. Seit Revision 4 läuft sie ohne sichtbaren Start-/Pause-Button durchgehend, auch bei Berührung oder Mauszeigerkontakt. Berühren, Mauszeiger und Tastaturfokus zeigen das farbige Original-Logo. Die Betriebssystem-Einstellung für reduzierte Bewegung wird weiterhin respektiert; dann ist die Leiste manuell scrollbar. Im Hintergrund und außerhalb des Sichtbereichs spart die Animation Rechenleistung. Das mobile Menü verwendet HTML-Details und lässt sich auch ohne JavaScript öffnen.
 
 Gas, Öl und Wasserenthärtung ergänzen das Technikstudio. „Entkalkungsanlage“ wird als gebräuchliche Bezeichnung erklärt, nicht als separates viertes Verfahren ausgegeben. Das Modell zeigt Ionenaustausch und einen schematischen Regenerationsablauf. Die neuen Gas-/Ölmodelle erklären Brennwerttechnik, ohne daraus eine pauschale Einbauempfehlung oder Förderzusage abzuleiten. Quellen stehen direkt unter den Modellen.
 
@@ -79,8 +79,8 @@ Die Kamera passt ihre Ansicht an die gesamte Geometrie an. Dadurch bleiben auch 
 
 1. Die HTTPS-Adresse der separaten Test-Subdomain direkt in Safari öffnen, nicht die heruntergeladene HTML-Datei in der Dateivorschau. Anschließend nach Möglichkeit auch Chrome/Android testen.
 2. Im Hoch- und Querformat: Logo, Hero-Hintergrund, Navigation und alle Karten dürfen keinen seitlichen Seitenüberlauf erzeugen. Menü öffnen, einen Link wählen, zurückkehren.
-3. Markenleiste seitlich wischen, mehrere Logos berühren, Lauf starten und pausieren. Die Seite muss weiterhin vertikal scrollbar sein.
-4. Alle sieben Modelle auswählen. Horizontal ziehen, Pfeiltasten/Buttons verwenden, Bauteile antippen, Ansichten trennen/zusammensetzen. Bei Enthärtung „Regeneration zeigen“, beim Abgleich den Vergleich testen. Hoch-/Querformat wechseln.
+3. Die Marken müssen ohne Start-/Pause-Button gleichmäßig laufen. Mehrere Logos berühren: Farbe erscheint, der Lauf geht weiter. Die Seite bleibt dort vertikal scrollbar. Mit systemweit reduzierter Bewegung ist die Leiste stattdessen manuell scrollbar.
+4. Alle sieben Modelle auswählen. Innerhalb der Modellfläche horizontal und vertikal ziehen: Nur das Modell soll sich drehen, die Seite darf dabei nicht mitscrollen. Finger lösen und neben der Modellfläche scrollen: Die Seite muss sich wieder normal bewegen. Auch eine zweite Berührung und unterbrochene Gesten prüfen. Pfeiltasten/Buttons verwenden, Bauteile antippen, Ansichten trennen/zusammensetzen. Bei Enthärtung „Regeneration zeigen“, beim Abgleich den Vergleich testen. Hoch-/Querformat wechseln.
 5. Flussanimation starten und pausieren; beim Verlassen der Ansicht und im Hintergrund darf keine dauerhafte unnötige Animation laufen.
 6. Beim Budgetrechner Betrag bzw. Fläche ändern, ungültige Eingaben prüfen, optionale Förderangaben aufklappen. „Kein Angebot“ muss vor und nach Eingaben sowie im Druckergebnis sichtbar sein.
 7. Eine Beratungs-E-Mail öffnen: persönliche Budgetannahme und Hinweis auf fehlendes Angebot enthalten, sensible Einkommensangaben nicht enthalten. Nichts automatisch versenden.
@@ -94,3 +94,17 @@ Die aktuelle Version rechnet ein selbst gewähltes Budget und gegebenenfalls Fö
 Für einen späteren Kostenorientierungsrechner empfiehlt sich eine kleine, vom Betrieb gepflegte Preismatrix aus echten abgeschlossenen Projekten: typischer Leistungsumfang, Kostenkorridor, Datum, enthaltene Arbeiten und Ausschlüsse. Daraus eher einen Bereich als einen scheinbar präzisen Festpreis anzeigen. Erst nach Freigabe dieser Daten den Rechner als Kostenschätzung für neue Projekte bezeichnen. Der Zusatz „kein Angebot“ allein macht unrealistische Preisannahmen nicht aussagekräftig.
 
 Für Werbeeinrichtung liegt marketing/CHATGPT-ADS.md bei. Es wurde keine Kampagne angelegt oder Geld ausgegeben.
+
+
+## Revision 4: Korrekturen nach Browser- und Handyfeedback
+
+- Die sechs Leistungsbilder füllen wieder den Hintergrund ihrer Karten. Ein weißer Verlauf hält die Texte lesbar. Keine kleinen Vorschaubilder mehr; Kategorie, Pfeil und Beschriftung bleiben unabhängig von der Bildgröße ausgerichtet.
+- Marken laufen ohne sichtbaren Pause-Button oder Scrollbalken durchgehend. Hover, Fokus und Berührung stoppen die Bewegung nicht. Der berührte Bereich zeigt das farbige Original-Logo, auch wenn die Logos unter dem Finger weiterlaufen.
+- Die aktive 3D-Fläche übernimmt Drehgesten vollständig (`touch-action: none`, lokale Pointer-Capture und nicht-passives Touch-Move). Gesten außerhalb dieser Fläche bleiben unverändert. Kein globales Sperren des Dokuments; Ende, Abbruch, verlorene Pointer-Capture und Fensterwechsel beenden die Drehgeste.
+- Google-Rezensionen sind als Karten mit Name, Datum, Sternen, Text und Quellenangabe gestaltet. Solange die echte Verbindung fehlt, erscheinen drei ausdrücklich bezeichnete Layoutkarten, ohne erfundene Bewertungen. Ein erfolgreicher Google-Abruf ersetzt sie automatisch durch echte Texte. Für eine manuell befüllte Vorschau werden Originaltexte/Screenshots und der bestätigte Google-Maps-Profillink benötigt. Die öffentliche Recherche lieferte keine zuverlässig abrufbaren Google-Originalrezensionen.
+- Auf GitHub Pages läuft der PHP-Endpunkt nicht. Dort kann man das Design und die statischen Funktionen prüfen; die vorhandene Google-Anbindung wird auf dem dafür vorgesehenen PHP-Hosting eingerichtet. Noch keine Verbindung aktiviert.
+- Rechner, Förderszenario und Hero-Firmenauto bleiben in dieser Revision unverändert.
+
+Gezielt geprüft: Markenlauf trotz Touch/Hover/Fokus, Farbwechsel, Schleifenübergang, reduzierte Bewegung und Hintergrundwechsel; 258 bestehende 3D-Funktionsassertionen plus Regression für vertikales Drehen, Pointer-Zuordnung, Abbruch/Freigabe und lokale Scroll-Unterdrückung. HTML-Verweise und JavaScript-Syntax geprüft. Die Tests simulieren Ereignisse und ersetzen keinen Safari-/Android-Gerätetest.
+
+Nach dem Hochladen der neuen Dateien die Browserseite vollständig neu laden (am Mac: Cmd + Shift + R), damit alte CSS-/JS-Dateien nicht weiter aus dem Browsercache angezeigt werden.
