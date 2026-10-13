@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="800" viewBox="0 0 960 800" fill="none">
+  <title>Illustratives Energiekonzept mit Wohnhaus, Wärmepumpe und Fußbodenheizung</title>
+  <desc>Architektonische Schnittillustration eines hellen Wohnhauses. Eine außen stehende Luft-Wasser-Wärmepumpe ist über Vorlauf und Rücklauf mit der Wärmeverteilung im Haus verbunden. Der geöffnete Fußboden zeigt eine schematische Heizrohrführung.</desc>
+  <defs>
+    <linearGradient id="ground" x1="265" y1="296" x2="646" y2="733" gradientUnits="userSpaceOnUse"><stop stop-color="#FEFDF9"/><stop offset="1" stop-color="#EEECE4"/></linearGradient>
+    <linearGradient id="wall" x1="572" y1="135" x2="601" y2="488" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFDF8"/><stop offset="1" stop-color="#E8E1D3"/></linearGradient>
+    <linearGradient id="end-wall" x1="265" y1="180" x2="481" y2="376" gradientUnits="userSpaceOnUse"><stop stop-color="#F8F5ED"/><stop offset="1" stop-color="#DED7C9"/></linearGradient>
+    <linearGradient id="roof" x1="349" y1="74" x2="355" y2="280" gradientUnits="userSpaceOnUse"><stop stop-color="#2B475A"/><stop offset="1" stop-color="#142F43"/></linearGradient>
+    <linearGradient id="glass" x1="501" y1="176" x2="684" y2="376" gradientUnits="userSpaceOnUse"><stop stop-color="#BFDADD"/><stop offset=".5" stop-color="#EAF3EF"/><stop offset="1" stop-color="#90B7BC"/></linearGradient>
+    <linearGradient id="oak" x1="487" y1="355" x2="410" y2="551" gradientUnits="userSpaceOnUse"><stop stop-color="#DEC7A7"/><stop offset="1" stop-color="#BF9770"/></linearGradient>
+    <linearGradient id="heat-floor" x1="320" y1="439" x2="561" y2="584" gradientUnits="userSpaceOnUse"><stop stop-color="#F5EBDC"/><stop offset="1" stop-color="#E5D1B6"/></linearGradient>
+    <linearGradient id="pump-front" x1="156" y1="513" x2="292" y2="688" gradientUnits="userSpaceOnUse"><stop stop-color="#FCFCF7"/><stop offset=".55" stop-color="#E8E9E1"/><stop offset="1" stop-color="#CBCFC8"/></linearGradient>
+    <linearGradient id="pump-side" x1="292" y1="575" x2="350" y2="636" gradientUnits="userSpaceOnUse"><stop stop-color="#2E4E62"/><stop offset="1" stop-color="#153449"/></linearGradient>
+    <linearGradient id="fan" x1="0" y1="0" x2="90" y2="88"><stop stop-color="#405464"/><stop offset="1" stop-color="#112A3B"/></linearGradient>
+    <linearGradient id="sofa" x1="465" y1="386" x2="570" y2="460" gradientUnits="userSpaceOnUse"><stop stop-color="#EEE6D8"/><stop offset="1" stop-color="#D0BDA7"/></linearGradient>
+    <radialGradient id="warm-glow"><stop stop-color="#E7B777" stop-opacity=".12"/><stop offset="1" stop-color="#E7B777" stop-opacity="0"/></radialGradient>
+    <clipPath id="platform-clip"><path d="M93 531 522 283 880 488 451 736Z"/></clipPath>
+    <clipPath id="oak-clip"><path d="M465 330 725 480 612 545 352 395Z"/></clipPath>
+    <pattern id="grid" width="56" height="32" patternUnits="userSpaceOnUse"><path d="m0 16 28-16 28 16-28 16Z" stroke="#DADCD2" stroke-width=".65"/></pattern>
+    <pattern id="grain" width="14" height="8" patternUnits="userSpaceOnUse"><path d="M0 4h14" stroke="#A78561" stroke-opacity=".18" stroke-width=".6"/></pattern>
+  </defs>
+
+  <!-- Calm ivory space; the platform keeps the illustration legible at narrow widths. -->
+  <path fill="#FAF9F4" d="M0 0h960v800H0z"/>
+  <ellipse cx="480" cy="487" rx="407" ry="265" fill="url(#warm-glow)"/>
+  <path d="m93 531 429-248 358 205v13L451 748 93 544Z" fill="#E4E5DD"/>
+  <path d="m93 531 429-248 358 205-429 248Z" fill="url(#ground)" stroke="#E0E3D9" stroke-width="1.5"/>
+  <g clip-path="url(#platform-clip)" opacity=".52"><path fill="url(#grid)" d="M60 278h836v488H60z"/></g>
+  <path d="m106 532 415-240 346 198" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="m129 603 78 45m570-199 58 34" stroke="#C9CDC3" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="m427 703 31 18 32-19" stroke="#D0D3C9" stroke-width="1.5"/>
+
+  <!-- Ground shadows are simple geometry, with no expensive blur filters. -->
+  <path d="m245 472 237-145 272 159-211 139Z" fill="#153449" opacity=".045"/>
+  <path d="m244 478 240-133 256 145-204 132Z" fill="#153449" opacity=".06"/>
+  <path d="m260 474 264 151 215-124-263-153Z" fill="#123149" opacity=".055"/>
+
+  <!-- The floor has a clearly visible edge: white structure, insulation, then heating layer. -->
+  <path d="m261 447 260 150v26L261 473Z" fill="#D9D8CB"/>
+  <path d="m521 597 204-117v26L521 623Z" fill="#F1F0E7"/>
+  <path d="m261 447 260 150v9L261 456Z" fill="#F3E4CD"/>
+  <path d="m521 597 204-117v9L521 606Z" fill="#DBCAAF"/>
+  <path d="m261 459 260 150m0 0 204-117" stroke="#C7CBBF" stroke-width="2"/>
+  <path d="m261 447 204-117 260 150-204 117Z" fill="url(#oak)"/>
+  <path d="m261 447 204-117 260 150-204 117Z" fill="url(#grain)"/>
+  <g clip-path="url(#oak-clip)" stroke="#A57B52" stroke-opacity=".27" stroke-width="1">
+    <path d="m245 441 291 168m-271-181 291 168m-271-181 291 168m-271-181 291 168m-271-181 291 168m-271-181 291 168m-271-181 291 168m-271-181 291 168m-271-181 291 168m-271-181 291 168m-271-181 291 168"/>
+    <path d="m385 422 21-12m43 61 21-12m58 69 21-12m-80-113 21-12m61 71 21-12m-79-113 21-12m52 66 21-12"/>
+  </g>
+
+  <!-- Rear wall and gable: the near facade is intentionally opened as a cutaway. -->
+  <path d="m465 330 260 150V260L465 110Z" fill="url(#wall)" stroke="#DEDACF" stroke-width="1.5"/>
+  <path d="m261 447 204-117V110L363 51 261 227Z" fill="url(#end-wall)" stroke="#D2D1C7" stroke-width="1.5"/>
+  <path d="m261 447 9 5 204-117-9-5Z" fill="#C3B9A6"/>
+  <path d="m465 330 260 150-8 5-252-145Z" fill="#D7C9B4"/>
+  <path d="M465 112v218" stroke="#FFFFFF" stroke-width="3"/>
+  <path d="m269 438 189-109m15 0 244 141" stroke="#F9F6F0" stroke-width="7"/>
+
+  <!-- Tall architectural windows; no vendor or project is represented. -->
+  <path d="m289 251 65-37v141l-65 38Z" fill="#B4B7AC"/>
+  <path d="m294 254 54-31v129l-54 31Z" fill="url(#glass)" stroke="#FDFCF6" stroke-width="5"/>
+  <path d="m300 267 40-23m-40 36 40-23m-12-27v128" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="2"/>
+  <path d="m489 156 202 116v131L489 287Z" fill="#C7C9BC"/>
+  <path d="m494 162 191 110v124L494 285Z" fill="url(#glass)" stroke="#FFFDF7" stroke-width="7"/>
+  <path d="m561 199 0 124m60-89v125m-123-87 183 106" stroke="#FFFFFA" stroke-width="5"/>
+  <path d="m511 174 129 75-127 42Z" fill="#FFFFFF" opacity=".26"/>
+  <path d="m620 267 59 34-59 46Z" fill="#FFFFFF" opacity=".17"/>
+  <path d="m488 294 204 118" stroke="#A4AA9D" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- A restrained partial standing-seam roof leaves the living area visible. -->
+  <path d="m465 110-102-59 74 43 102 59Z" fill="#405A6A"/>
+  <path d="m363 51-102 176 74 43L437 94Z" fill="url(#roof)"/>
+  <path d="m261 227 74 43v8l-74-43Z" fill="#102C40"/>
+  <path d="m335 270 102-176v8L335 278Z" fill="#315061"/>
+  <path d="m280 238 103-175m-80 189L405 76m-80 188L427 89" stroke="#65808C" stroke-opacity=".48" stroke-width="1.5"/>
+  <path d="m363 51 74 43 102 59" stroke="#A4B0AF" stroke-opacity=".6" stroke-width="2"/>
+  <path d="m437 94 186 107 102 59" stroke="#C8D0C6" stroke-width="1.7" stroke-dasharray="5 8"/>
+  <path d="m335 278 186 107 102-176" stroke="#C8D0C6" stroke-width="1.7" stroke-dasharray="5 8"/>
+  <path d="m537 161 185 107" stroke="#FFFFFA" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Warm, quiet living room: simple sofa, cushions, side table and olive plant. -->
+  <path d="m439 388 124 72 61-35-123-71Z" fill="#B59672" opacity=".13"/>
+  <path d="m449 387 110 63 60-35-110-63Z" fill="#EEE8DB"/>
+  <path d="m452 388 107 62 58-34-107-62Z" stroke="#D5C4AA" stroke-width="1"/>
+  <path d="m468 366 95 55v42l-95-55Z" fill="#CDBBA7"/>
+  <path d="m468 366 20-11 95 55-20 11Z" fill="#EEE5D7"/>
+  <path d="m563 421 20-11v42l-20 11Z" fill="#BEAA93"/>
+  <path d="m468 397 91 52 43-24-91-53Z" fill="url(#sofa)"/>
+  <path d="m468 397 91 52v13l-91-52Z" fill="#D8C7B1"/>
+  <path d="m559 449 43-24v14l-43 24Z" fill="#C5B39D"/>
+  <path d="m468 397 11-6 26 15-11 7Z" fill="#FCF8EF"/>
+  <path d="m495 410 14-8 21 12-13 8Z" fill="#E4BFA1"/>
+  <path d="m532 431 13-8 21 12-13 8Z" fill="#E9DEC8"/>
+  <path d="m483 415 69 40" stroke="#BCA890" stroke-width="1"/>
+  <path d="M479 416v10m76 35v10m40-32v9" stroke="#5D6157" stroke-width="3" stroke-linecap="round"/>
+  <path d="m617 423 31 18 27-15-31-18Z" fill="#E8DCC7" stroke="#D2C1A4"/>
+  <path d="m620 425 28 16v24l-28-16Zm28 16 24-14v25l-24 13Z" fill="#D1BB98"/>
+  <path d="m635 420 12 7 11-6-12-7Z" fill="#A6B3A5"/>
+  <path d="M660 407v-47" stroke="#777E63" stroke-width="3" stroke-linecap="round"/>
+  <path d="M659 378c-27 0-33-19-27-26 19-4 30 8 27 26Z" fill="#87967C"/>
+  <path d="M660 368c-2-24 16-34 24-27 7 18-4 30-24 27Z" fill="#9AAB8B"/>
+  <path d="M659 387c13-21 29-23 34-12-3 17-19 23-34 12Z" fill="#72866F"/>
+  <path d="m647 397 26 15-4 25-13 8-13-8-4-26Z" fill="#C6B594"/>
+  <ellipse cx="656" cy="407" rx="17" ry="9" fill="#D8CCB6"/>
+  <ellipse cx="656" cy="407" rx="12" ry="5.5" fill="#7F806A"/>
+  <path d="M660 407v-17" stroke="#777E63" stroke-width="3"/>
+
+  <!-- Open floor strip. Copper-red loops are schematic and deliberately not an installation plan. -->
+  <path d="m261 447 91-52 260 150-91 52Z" fill="url(#heat-floor)" stroke="#DDC8AA" stroke-width="1.5"/>
+  <g transform="matrix(.866025 .5 -.866025 .5 465 330)">
+    <path d="M0 130h300v105H0Z" fill="#F0DFC8" fill-opacity=".22"/>
+    <path d="M13 147H276q13 0 13 11t-13 11H25q-12 0-12 11t12 11H276q13 0 13 11t-13 11H13" stroke="#BE7D4E" stroke-opacity=".18" stroke-width="10" stroke-linecap="round"/>
+    <path d="M13 147H276q13 0 13 11t-13 11H25q-12 0-12 11t12 11H276q13 0 13 11t-13 11H13" stroke="#C7784B" stroke-width="5.5" stroke-linecap="round"/>
+    <path d="M13 145H276q13 0 13 11t-13 11H25q-12 0-12 11t12 11H276q13 0 13 11t-13 11H13" stroke="#F3B580" stroke-opacity=".7" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M13 147H-2m15 66H-2" stroke="#E7A574" stroke-width="5.5" stroke-linecap="round"/>
+    <path d="m112 147 10 0m-27 22H85m117 22h10m-72 22h-10" stroke="#FFE4BB" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <path d="m352 395 260 150" stroke="#F6F1E5" stroke-width="5"/>
+  <path d="m262 447 259 150" stroke="#FBEEDD" stroke-width="2"/>
+
+  <!-- Connections run from the external unit to the open near-side floor distribution. -->
+  <path d="m306 559 39-23q7-4 0-8l-47-27q-7-4 0-8l33-19-51-29q-5-3 0-6l58-34" stroke="#A04437" stroke-opacity=".12" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m306 556 39-23q7-4 0-8l-47-27q-7-4 0-8l33-19-51-29q-5-3 0-6l58-34" stroke="#D45B42" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m319 569 41-24q7-4 0-8l-44-26q-7-4 0-8l26-15-58-34q-5-3-5-8v-11" stroke="#6BABB6" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m307 553 38-22m-27 35 40-23" stroke="#FFFFFF" stroke-opacity=".48" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Outdoor air-water heat pump, a generic casing with a properly projected fan face. -->
+  <path d="m151 634 133 77 80-46-135-78Z" fill="#153449" opacity=".075"/>
+  <path d="m150 638 135 78 81-46-136-79Z" fill="#173449" opacity=".045"/>
+  <path d="m166 628 17 10v22l-17-10Zm101 58 15 9v22l-15-9Z" fill="#737D76"/>
+  <path d="m283 695 40-23v15l-40 23Z" fill="#8F9890"/>
+  <path d="m160 514 49-28 137 79-49 28Z" fill="#F1F2EB" stroke="#D1D7CD" stroke-width="1.5"/>
+  <path d="m297 593 49-28v104l-49 28Z" fill="url(#pump-side)" stroke="#223E51" stroke-width="1.5"/>
+  <path d="m160 514 137 79v104l-137-79Z" fill="url(#pump-front)" stroke="#D5D8CE" stroke-width="1.5"/>
+  <path d="m166 514 131 76 43-25" stroke="#FFFFFF" stroke-width="2"/>
+  <g transform="matrix(.866025 .5 0 1 160 514)">
+    <rect x="9" y="7" width="139" height="90" rx="5" stroke="#B3BCB1" stroke-width="1"/>
+    <circle cx="73" cy="51" r="39" fill="#BFC8BC"/>
+    <circle cx="73" cy="51" r="35" fill="#243D4B" stroke="#566977" stroke-width="3"/>
+    <g transform="translate(73 51)" fill="#708286">
+      <path d="M-2-4c-14-11-25-18-22-27 4-9 18-3 22 5 3 8 4 17 0 22Z"/>
+      <path d="M-2-4c-14-11-25-18-22-27 4-9 18-3 22 5 3 8 4 17 0 22Z" transform="rotate(120)"/>
+      <path d="M-2-4c-14-11-25-18-22-27 4-9 18-3 22 5 3 8 4 17 0 22Z" transform="rotate(240)"/>
+    </g>
+    <circle cx="73" cy="51" r="26" stroke="#B2BCB6" stroke-opacity=".34" stroke-width="1"/>
+    <circle cx="73" cy="51" r="16" stroke="#B2BCB6" stroke-opacity=".34" stroke-width="1"/>
+    <path d="M73 17v68M39 51h68M49 27l48 48m0-48L49 75" stroke="#142F3E" stroke-opacity=".65" stroke-width="1.5"/>
+    <circle cx="73" cy="51" r="5.5" fill="#C1CBC4" stroke="#233F4F" stroke-width="2"/>
+    <rect x="119" y="24" width="17" height="5" rx="1.5" fill="#506676"/>
+    <path d="M122 35h11m-11 5h11m-11 5h11m-11 5h11" stroke="#A2AEA3" stroke-width="1.3"/>
+    <circle cx="128" cy="66" r="2" fill="#92A991"/>
+  </g>
+  <path d="m308 592 27-16m-27 25 27-16m-27 25 27-16m-27 25 27-16m-27 25 27-16m-27 25 27-16m-27 25 27-16m-27 25 27-16" stroke="#7E9296" stroke-opacity=".52" stroke-width="1.8"/>
+  <path d="m297 595 0 97" stroke="#B4C3BF" stroke-width="1"/>
+
+  <!-- A little landscaping grounds the concept without crowding it with technical labels. -->
+  <path d="m711 541 33 19 33-19-33-19Z" fill="#E1E5D7"/>
+  <path d="m711 541 33 19v9l-33-19Zm33 19 33-19v9l-33 19Z" fill="#D3D9CB"/>
+  <path d="M742 546v-41" stroke="#839278" stroke-width="3"/>
+  <path d="M742 515c-17 6-30-1-27-14 13-9 27-3 27 14Z" fill="#A6B397"/>
+  <path d="M744 509c-6-18 0-34 14-31 13 12 2 28-14 31Z" fill="#93A68D"/>
+  <path d="M744 528c8-20 25-26 31-14-1 17-16 23-31 14Z" fill="#81997F"/>
+  <path d="M726 535c-7-15-23-17-27-8 3 14 18 17 27 8Z" fill="#B3BEA1"/>
+  <ellipse cx="744" cy="548" rx="18" ry="8" fill="#9DAE92" opacity=".24"/>
+  <path d="m789 483 17 10-17 10-17-10Z" fill="#D7DCD0" opacity=".8"/>
+  <path d="m821 501 12 7-12 7-12-7Z" fill="#DEE3D7"/>
+  <path d="m408 655 22 13-22 13-22-13Z" fill="#DFE2D6"/>
+</svg>
