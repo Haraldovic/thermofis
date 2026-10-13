@@ -1,10 +1,22 @@
-# Thermofis – überarbeitete Website, Vorschau vom 13.10.2026 – Revision 4
+# Thermofis – überarbeitete Website, Vorschau vom 13.10.2026 – Revision 5
 
 Die Online-Website wurde nicht verändert. Dieses Paket ist eine separate Entwurfsversion. Die ursprüngliche ZIP bleibt erhalten.
 
-## Enthaltene Änderungen
+## Aktueller Abschlussstand: Revision 5
 
-- Überarbeitete Startseite mit klaren Wegen zu Leistungen, interaktiver Technik und Kostenplanung; gleiche Markenfarben, Original-Logo, vorhandene Projektbilder und weitgehend unveränderte Texte.
+- Die Bild- und Layoutkorrekturen gelten gemeinsam für Desktop, Tablet und Handy. Das Original-Firmenauto ist deutlich sichtbarer; nur der Textbereich bekommt einen hellen Verlauf.
+- Sechs neue, als KI-generiert gekennzeichnete Leistungsbilder mit einheitlicher Bildsprache. Die Fotos bleiben vollflächig sichtbar; ein dunkler Verlauf schützt die weiße Beschriftung. Drei, zwei oder eine Kartenspalte je nach Bildschirmbreite.
+- Alle zehn echten Referenzfotos und das Original-Autofoto sind bytegleich erhalten. Die Referenzgalerie steht jetzt direkt nach den Leistungen.
+- Marken laufen ohne Pause-Button und ohne sichtbaren Scrollbalken auf allen Bildschirmgrößen. Hover/Berührung zeigt Farbe, die Bewegung läuft weiter. Die Einstellung für reduzierte Bewegung wird respektiert.
+- Kürzere Einleitungen, Leistungs- und Ablauftexte; wichtige Rechner-, Förder- und Sicherheitshinweise bleiben erhalten. Der offen sichtbare Hauptinhalt der Startseite wurde nach derselben Zählmethode um rund 13 % gekürzt, aufklappbare Informationen ausgenommen.
+- Versionierte CSS-/JavaScript-URLs verhindern, dass ein normaler Browser-Cache nach dem Update alte Asset-Versionen bevorzugt. Auf dem Hosting zusätzlich vorhandene Seiten-/CDN-Caches leeren.
+- Hinweise zu Gasgeruch, CO-Alarm und gefährlichen Wasserschäden korrigiert; keine Weiterleitung lebensbedrohlicher Situationen an einen normalen Handwerkertermin. Unrealistische pauschale Förder-, Preis- und Ankunftsversprechen an den gefundenen Stellen gestrafft.
+
+Die sechs Bilder liegen unter `assets/images/services/*-v5.webp`. Methode: integrierte Imagegen-Bilderzeugung; anschließend nur auf 1200 × 800 Pixel skaliert und als WebP komprimiert. Die sechs Original-Prompts samt Dateizuordnung stehen in `integration/BILD-PROMPTS.json`. Zusammen benötigen die neuen Bilder rund 529 kB. Sie sind Illustrationen der Leistungen, keine Referenzarbeiten des Betriebs.
+
+## Enthaltene Funktionen
+
+- Überarbeitete Startseite mit klaren Wegen zu Leistungen, interaktiver Technik und Kostenplanung; gleiche Markenfarben, Original-Logo, vorhandene Projektbilder und gezielt gestraffte Texte.
 - Gemeinsame CSS-Dateien, kompaktere Navigation, bessere Lesbarkeit auf kleinen Bildschirmen, Tastaturfokus, verständliche Formularlabels und Rücksicht auf reduzierte Bewegung.
 - Sieben drehbare 3D-Schemata: Luft-Wasser-Wärmepumpe, Fußbodenheizung, indirekter Trinkwasserspeicher, hydraulischer Abgleich, Gas-Brennwertgerät, Öl-Brennwertkessel mit Tank und Enthärtungsanlage mit Regeneration. Bauteile auswählen, auseinanderziehen und Wärme-/Wasserflüsse starten. Lokale Geometrie und Animation, keine externen Modelle/CDNs oder WebGL-Abhängigkeit.
 - Wärmepumpen-Budget und Fußbodenheizungs-Kalkulation mit optionalem Förderszenario. Bruttopreise einschließlich 19 % USt., deutsche Zahlformatierung, nachvollziehbare Rechnung, E-Mail-Entwurf und Druck/PDF-Funktion.
@@ -59,26 +71,25 @@ Einrichtung auf der Test-Subdomain:
 
 ## Prüfung und Grenzen
 
+Revision 5 ergänzt eine Prüfung der tatsächlichen CSS-Kaskade für elf Breiten von 320 bis 1920 Pixel: Bildgröße/-Deckkraft, Kartenspalten, volle Textbreite, Markenlauf-Container, Navigation und lokale 3D-Touchregeln. Alle Prüfungen bestanden. Markenlauf, 3D-Gesten und Rechner-Regressionsprüfungen wurden erneut ausgeführt und bestanden. Die elf geschützten Originalbilder wurden per SHA-256 verglichen und sind unverändert. Diese Prüfungen messen CSS-Regeln und Codeverhalten; sie ersetzen keine gerenderte Seitenansicht oder echte Touchhardware.
+
+
 Die Rechner-Tests bestehen: Einkommensgrenzen, Kinderzuschlag, Kosten-/Quotenbegrenzung, Brutto-/Nettorechnung, BAFA-Alter/Temperaturbedingungen, nicht unterstützte Gebäude, fehlerhafte Zahlen sowie Datums- und Quellenstatussperren. Alle 15 HTML-Seiten wurden auf lokale Links/Assets, Anker, doppelte IDs, H1 und JSON-LD geprüft: keine Fehler. JavaScript-Syntaxprüfung erfolgreich. Für sieben Modelle bestanden 258 Funktionsassertionen mit simuliertem DOM und echtem Canvas-Rasterkontext: Szenenwechsel, Bauteilwahl, Drehgesten, mobile Themenauswahl, Animation, reduzierte Bewegung, verzögert messbare Flächen, fehlende oder stumme Observer und fehlender/fehlerhafter Canvas-Kontext. 1.512 Projektionsprüfungen bei 288, 320, 390 und 720 Pixel Breite prüfen die gesamte Geometrie in unterschiedlichen Drehwinkeln und beiden Modellzuständen. Die statischen Ersatzansichten sind PNGs aus derselben Geometrie; SVG-Ausgaben liegen zusätzlich bei. Das sind Code-, Geometrie- und Rasterprüfungen, kein vollständiger Browser- oder Gerätetest.
 
 Ein vollständiger Browserlauf der zusammengesetzten Website war hier nicht verfügbar. Ein PHP-Interpreter stand nicht zur Verfügung; PHP wurde statisch geprüft, aber nicht ausgeführt. Die echte Google-Anbindung, Hostinger-Cron, Datenschutzergänzung für den tatsächlichen Betrieb und mobile Browseransicht müssen vor Veröffentlichung auf dem Testhosting geprüft werden. Es wurde nichts live veröffentlicht.
 
 Recherche mit amtlichen Quellen steht in `FOERDERQUELLEN.md`; technische Google-Quellen und Einrichtung stehen in `integration/GOOGLE-SETUP.md`.
 
-## Revision 3: Firmenauto, Markenleiste und zusätzliche Technik
+## Bedienung
 
-Das vorhandene Foto des Firmenautos liegt dezent hinter dem Hero-Text. Die Hausillustration wird dort nicht mehr angezeigt. Der Kopfbereich zeigt das vollständige vorhandene Logo; mobile Überschriften und Abstände sind einheitlicher, der schwebende Anrufbutton ist kleiner und pulsiert nicht mehr.
+Auf schmalen Bildschirmen und Tablets bis 1100 Pixel wird ein natives Menü verwendet. Die Markenleiste läuft im sichtbaren Bereich automatisch; bei reduzierter Bewegung oder ohne JavaScript lässt sie sich manuell verschieben.
 
-Die Marken stehen in einer einzigen horizontalen Leiste. Seit Revision 4 läuft sie ohne sichtbaren Start-/Pause-Button durchgehend, auch bei Berührung oder Mauszeigerkontakt. Berühren, Mauszeiger und Tastaturfokus zeigen das farbige Original-Logo. Die Betriebssystem-Einstellung für reduzierte Bewegung wird weiterhin respektiert; dann ist die Leiste manuell scrollbar. Im Hintergrund und außerhalb des Sichtbereichs spart die Animation Rechenleistung. Das mobile Menü verwendet HTML-Details und lässt sich auch ohne JavaScript öffnen.
+Die sieben Technikmodelle verwenden nummerierte Bauteile und Erklärungen. Das Handy-Auswahlfeld ersetzt die breite Themenleiste. Gas-, Öl- und Enthärtungsmodelle erklären die Technik schematisch, ohne eine pauschale Einbau- oder Förderempfehlung zu geben. Bei blockiertem JavaScript sind alle sieben Ansichten als PNG-Bilder verfügbar. Diese Bilder werden nicht als interaktive 3D-Ansicht ausgegeben.
 
-Gas, Öl und Wasserenthärtung ergänzen das Technikstudio. „Entkalkungsanlage“ wird als gebräuchliche Bezeichnung erklärt, nicht als separates viertes Verfahren ausgegeben. Das Modell zeigt Ionenaustausch und einen schematischen Regenerationsablauf. Die neuen Gas-/Ölmodelle erklären Brennwerttechnik, ohne daraus eine pauschale Einbauempfehlung oder Förderzusage abzuleiten. Quellen stehen direkt unter den Modellen.
-
-Die Kamera passt ihre Ansicht an die gesamte Geometrie an. Dadurch bleiben auch bei stärkerer Drehung Bauteile im Bild. Auf schmalen Geräten erfolgt die Auswahl der sieben Themen über ein natives Auswahlfeld. Nummerierte Markierungen und der Erklärungstext darunter ersetzen überlappende Namensschilder. Bei fehlendem JavaScript sind alle sieben Technikansichten als normale Bilder lesbar; ein unbewegliches Bild ist ausdrücklich keine aktive 3D-Ansicht.
-
-## Mobiler Funktionstest auf dem Testhosting
+## Desktop- und Handyprüfung auf dem Testhosting
 
 1. Die HTTPS-Adresse der separaten Test-Subdomain direkt in Safari öffnen, nicht die heruntergeladene HTML-Datei in der Dateivorschau. Anschließend nach Möglichkeit auch Chrome/Android testen.
-2. Im Hoch- und Querformat: Logo, Hero-Hintergrund, Navigation und alle Karten dürfen keinen seitlichen Seitenüberlauf erzeugen. Menü öffnen, einen Link wählen, zurückkehren.
+2. Desktop bei etwa 1024, 1440 und 1920 Pixel sowie Handy im Hoch- und Querformat: Logo, Hero-Hintergrund, Navigation und alle Karten dürfen keinen seitlichen Seitenüberlauf erzeugen. Menü öffnen, einen Link wählen, zurückkehren.
 3. Die Marken müssen ohne Start-/Pause-Button gleichmäßig laufen. Mehrere Logos berühren: Farbe erscheint, der Lauf geht weiter. Die Seite bleibt dort vertikal scrollbar. Mit systemweit reduzierter Bewegung ist die Leiste stattdessen manuell scrollbar.
 4. Alle sieben Modelle auswählen. Innerhalb der Modellfläche horizontal und vertikal ziehen: Nur das Modell soll sich drehen, die Seite darf dabei nicht mitscrollen. Finger lösen und neben der Modellfläche scrollen: Die Seite muss sich wieder normal bewegen. Auch eine zweite Berührung und unterbrochene Gesten prüfen. Pfeiltasten/Buttons verwenden, Bauteile antippen, Ansichten trennen/zusammensetzen. Bei Enthärtung „Regeneration zeigen“, beim Abgleich den Vergleich testen. Hoch-/Querformat wechseln.
 5. Flussanimation starten und pausieren; beim Verlassen der Ansicht und im Hintergrund darf keine dauerhafte unnötige Animation laufen.
@@ -95,16 +106,4 @@ Für einen späteren Kostenorientierungsrechner empfiehlt sich eine kleine, vom 
 
 Für Werbeeinrichtung liegt marketing/CHATGPT-ADS.md bei. Es wurde keine Kampagne angelegt oder Geld ausgegeben.
 
-
-## Revision 4: Korrekturen nach Browser- und Handyfeedback
-
-- Die sechs Leistungsbilder füllen wieder den Hintergrund ihrer Karten. Ein weißer Verlauf hält die Texte lesbar. Keine kleinen Vorschaubilder mehr; Kategorie, Pfeil und Beschriftung bleiben unabhängig von der Bildgröße ausgerichtet.
-- Marken laufen ohne sichtbaren Pause-Button oder Scrollbalken durchgehend. Hover, Fokus und Berührung stoppen die Bewegung nicht. Der berührte Bereich zeigt das farbige Original-Logo, auch wenn die Logos unter dem Finger weiterlaufen.
-- Die aktive 3D-Fläche übernimmt Drehgesten vollständig (`touch-action: none`, lokale Pointer-Capture und nicht-passives Touch-Move). Gesten außerhalb dieser Fläche bleiben unverändert. Kein globales Sperren des Dokuments; Ende, Abbruch, verlorene Pointer-Capture und Fensterwechsel beenden die Drehgeste.
-- Google-Rezensionen sind als Karten mit Name, Datum, Sternen, Text und Quellenangabe gestaltet. Solange die echte Verbindung fehlt, erscheinen drei ausdrücklich bezeichnete Layoutkarten, ohne erfundene Bewertungen. Ein erfolgreicher Google-Abruf ersetzt sie automatisch durch echte Texte. Für eine manuell befüllte Vorschau werden Originaltexte/Screenshots und der bestätigte Google-Maps-Profillink benötigt. Die öffentliche Recherche lieferte keine zuverlässig abrufbaren Google-Originalrezensionen.
-- Auf GitHub Pages läuft der PHP-Endpunkt nicht. Dort kann man das Design und die statischen Funktionen prüfen; die vorhandene Google-Anbindung wird auf dem dafür vorgesehenen PHP-Hosting eingerichtet. Noch keine Verbindung aktiviert.
-- Rechner, Förderszenario und Hero-Firmenauto bleiben in dieser Revision unverändert.
-
-Gezielt geprüft: Markenlauf trotz Touch/Hover/Fokus, Farbwechsel, Schleifenübergang, reduzierte Bewegung und Hintergrundwechsel; 258 bestehende 3D-Funktionsassertionen plus Regression für vertikales Drehen, Pointer-Zuordnung, Abbruch/Freigabe und lokale Scroll-Unterdrückung. HTML-Verweise und JavaScript-Syntax geprüft. Die Tests simulieren Ereignisse und ersetzen keinen Safari-/Android-Gerätetest.
-
-Nach dem Hochladen der neuen Dateien die Browserseite vollständig neu laden (am Mac: Cmd + Shift + R), damit alte CSS-/JS-Dateien nicht weiter aus dem Browsercache angezeigt werden.
+Sicherheitsquellen für die Notdienst-Korrekturen: [DVGW – Gasgeruch](https://www.dvgw.de/themen/gas/verbraucherinformationen/was-tun-bei-gasgeruch), [Bundesärztekammer – Kohlenmonoxid-Vergiftung](https://www.bundesaerztekammer.de/fileadmin/user_upload/BAEK/Patienten/Patienteninformationen/Kohlenmonoxid-Vergiftung-kip.pdf). Geprüft am 13.10.2026.
