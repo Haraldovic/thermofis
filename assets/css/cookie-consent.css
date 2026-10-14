@@ -1,0 +1,72 @@
+/* Thermofis — Cookie-Consent Styling */
+.cookie-banner {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
+  background: var(--navy-deep, #042847);
+  color: #fff;
+  box-shadow: 0 -8px 32px rgba(0,0,0,.25);
+  padding: 1.1rem 1.25rem;
+}
+.cookie-banner__inner {
+  max-width: 1180px; margin: 0 auto;
+  display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+}
+.cookie-banner__text {
+  flex: 1 1 420px; margin: 0;
+  font-size: .9rem; line-height: 1.5;
+  color: rgba(255,255,255,.85);
+}
+.cookie-banner__text a { color: #fff; text-decoration: underline; }
+.cookie-banner__actions {
+  display: flex; gap: .6rem; flex-wrap: wrap; flex: 0 0 auto;
+}
+.cookie-banner__btn {
+  border: none; cursor: pointer;
+  padding: .65rem 1.2rem; border-radius: var(--r-full, 999px);
+  font-size: .88rem; font-weight: 600;
+  font-family: var(--font-body, inherit);
+  white-space: nowrap;
+}
+.cookie-banner__btn--primary {
+  background: var(--red, #C20000); color: #fff;
+}
+.cookie-banner__btn--primary:hover { background: var(--red-bright, #DD1414); }
+.cookie-banner__btn--ghost {
+  background: transparent; color: #fff;
+  border: 1px solid rgba(255,255,255,.35);
+}
+.cookie-banner__btn--ghost:hover { background: rgba(255,255,255,.08); }
+
+@media (max-width: 640px) {
+  .cookie-banner { padding: .85rem 1rem; }
+  .cookie-banner__inner { flex-direction: column; align-items: stretch; gap: .75rem; }
+  .cookie-banner__text { flex: 1 1 auto; font-size: .8rem; line-height: 1.45; }
+  .cookie-banner__actions { display: flex; gap: .5rem; }
+  .cookie-banner__btn { flex: 1 1 0; text-align: center; padding: .6rem .5rem; font-size: .82rem; }
+}
+
+/* Karten-Platzhalter, bis Zustimmung erteilt ist */
+.map-consent-placeholder {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1rem; text-align: center; padding: 2rem;
+  background: var(--navy-deep, #042847); color: #fff;
+}
+.map-consent-placeholder p {
+  margin: 0; max-width: 340px;
+  font-size: .88rem; line-height: 1.5;
+  color: rgba(255,255,255,.75);
+}
+.map-consent-btn {
+  border: none; cursor: pointer;
+  background: var(--red, #C20000); color: #fff;
+  padding: .7rem 1.3rem; border-radius: var(--r-full, 999px);
+  font-size: .88rem; font-weight: 600;
+  font-family: var(--font-body, inherit);
+}
+.map-consent-btn:hover { background: var(--red-bright, #DD1414); }
+
+#cookie-settings-link {
+  color: inherit; opacity: .7; text-decoration: underline;
+  font-size: inherit; cursor: pointer;
+}
+#cookie-settings-link:hover { opacity: 1; }
