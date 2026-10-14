@@ -1,4 +1,4 @@
-/* THERMOFIS · Revision 8. Shared desktop, tablet and phone refinements. */
+/* THERMOFIS · Revision 10. Shared desktop, tablet and phone refinements. */
 :root{--tf-ink:#07344e;--tf-paper:#f7f7f3}
 .header .brand{position:relative;display:block;width:140px;height:74px;flex:0 0 140px;overflow:hidden}
 .header .brand .brand-logo{position:absolute;left:0;top:-8px;width:140px;height:105px;margin:0;object-fit:contain;max-width:none}
@@ -110,21 +110,58 @@
 .google-reviews-summary>div{min-width:0}
 .google-reviews-summary>div>strong{display:block;color:var(--tf-ink);font-size:12px;line-height:1.5}
 .google-reviews-summary>div>span{display:block;margin-top:3px;font-size:11px;line-height:1.6}
-.google-reviews-more{margin-top:20px}
-.google-reviews-more>summary{list-style:none;display:flex;align-items:center;justify-content:center;gap:14px;min-height:48px;width:fit-content;max-width:100%;margin-inline:auto;padding:13px 20px;border:1px solid #b9cbd3;border-radius:7px;background:white;color:var(--tf-ink);font-family:inherit;font-size:13px;font-weight:600;line-height:1.5;cursor:pointer}
-.google-reviews-more>summary::-webkit-details-marker{display:none}
-.google-reviews-more>summary::marker{content:""}
-.google-reviews-more>summary:hover{background:#edf3f3}
-.google-reviews-more>summary:focus-visible{outline:2px solid #357d9c;outline-offset:4px}
-.google-reviews-more__icon{font:400 22px/1 system-ui,sans-serif;flex:none;transform-origin:center}
-.google-reviews-more__open{display:none}
-.google-reviews-more[open] .google-reviews-more__closed{display:none}
-.google-reviews-more[open] .google-reviews-more__open{display:inline}
-.google-reviews-more[open] .google-reviews-more__icon{transform:rotate(45deg)}
-.google-reviews-more[open]>.google-reviews-grid{margin-top:20px}
+.google-reviews-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 14px;min-width:0}
+.google-reviews-hint{margin:0;color:#526d7c;font-size:12px;line-height:1.5}
+.google-reviews-controls{display:flex;gap:8px;flex:none}
+.google-reviews-arrow{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;padding:0;border:1px solid #b9cbd3;border-radius:50%;background:white;color:#07344e;cursor:pointer;transition:background .18s,color .18s,border-color .18s}
+.google-reviews-arrow svg{display:block;width:20px;height:20px;pointer-events:none}
+.google-reviews-arrow:disabled{color:#8497a1;border-color:#dce4e6;background:transparent;cursor:default}
+.google-reviews-arrow:focus-visible,.google-reviews-rail:focus-visible{outline:2px solid #357d9c;outline-offset:4px}
+.google-reviews-rail{display:flex;flex-wrap:nowrap;align-items:stretch;gap:16px;width:100%;max-width:100%;min-width:0;margin:0;padding:4px 2px 16px;overflow-x:auto;scroll-snap-type:x proximity;overscroll-behavior-x:contain;touch-action:auto;scrollbar-width:thin;scrollbar-color:#a4b8c2 #e5ecee}
+.google-reviews-rail>.google-review-card{flex:0 0 calc((100% - 32px)/3);min-width:0;max-width:100%;scroll-snap-align:start}
+.google-reviews-rail::-webkit-scrollbar{height:6px}
+.google-reviews-rail::-webkit-scrollbar-track{background:#e5ecee;border-radius:6px}
+.google-reviews-rail::-webkit-scrollbar-thumb{background:#a4b8c2;border-radius:6px}
+@media(hover:hover){.google-reviews-arrow:not(:disabled):hover{background:#07344e;border-color:#07344e;color:white}}
+@media(max-width:1024px){.google-reviews-rail>.google-review-card{flex-basis:calc((100% - 16px)/2)}}
+@media(max-width:640px){.google-reviews-rail>.google-review-card{flex-basis:88%}.google-reviews-toolbar{gap:12px}}
+@media(prefers-reduced-motion:reduce){.google-reviews-arrow{transition:none}}
+@media print{.google-reviews-toolbar{display:none}.google-reviews-rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible;padding:0}.google-reviews-rail>.google-review-card{break-inside:avoid}}
 .google-reviews-footer .btn{min-height:46px;white-space:normal}
 .google-reviews-footer>div{min-width:0}
 .google-reviews-footer small{display:block;margin-top:5px}
+
+/* Real destination pages share one navigation and responsive content system. */
+.nav__link[aria-current="page"],.nav__link.is-current{color:#b51e29;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:7px}
+.tf-mobile-menu-links a[aria-current="page"]{color:#b51e29}
+.tf-breadcrumb-wrap{padding-top:24px!important}
+.tf-breadcrumb-wrap .crumb{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0;font-size:12px;line-height:1.7;color:#637782}
+.tf-breadcrumb-wrap a{color:#35566a;text-decoration:underline;text-underline-offset:3px}
+.tf-content-page>.page-hero{padding-top:38px;padding-bottom:50px}
+.tf-content-page>.tf-tech,.tf-content-page>.calc-section,.tf-content-page>.google-reviews-section,.tf-content-page>.section:first-of-type{padding-top:40px}
+.tf-page-heading{font-size:clamp(32px,3.7vw,48px);line-height:1.12;letter-spacing:-.035em;margin:0 0 20px;color:var(--tf-ink)}
+.tf-content-page .page-hero h1{font-size:clamp(37px,4.6vw,62px);line-height:1.08;overflow-wrap:break-word}
+.tf-section-link-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:30px}
+.tf-section-link-head>div{min-width:0}.tf-section-link-head h2{font-size:clamp(30px,3.5vw,44px);margin:0 0 12px;line-height:1.15}
+.tf-section-link-head p{font-size:15px;line-height:1.7;color:#526873;margin:0}.tf-section-link-head>.btn{flex-shrink:0}
+.tf-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px}
+.tf-project-tile{margin:0;min-width:0}.tf-project-tile>a{display:block;position:relative;border-radius:6px;overflow:hidden}
+.tf-project-tile img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+.tf-content-page .tf-project-tile img{aspect-ratio:4/5}
+.tf-project-tile figcaption{padding-top:12px;font-size:12px;line-height:1.65;color:#526873;overflow-wrap:anywhere}
+.tf-project-tile>a:focus-visible{outline:3px solid #357d9c;outline-offset:4px}
+.tf-project-open{position:absolute;bottom:12px;right:12px;width:34px;height:34px;display:grid;place-items:center;background:#fff;color:#07344e;border-radius:50%;font-size:20px}
+.tf-service-detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:50px}
+.tf-service-detail>div{min-width:0}.tf-service-detail h2,.tf-route-panel h2{font-size:clamp(29px,3.2vw,42px);line-height:1.15;margin:0 0 20px}
+.tf-service-detail p,.tf-route-panel p{font-size:15px;line-height:1.8;color:#526873}
+.tf-service-detail__image{margin:0;min-width:0}.tf-service-detail__image img{display:block;width:100%;height:auto;border-radius:6px}
+.tf-service-detail__image figcaption{font-size:11px;color:#637782;line-height:1.6;padding-top:10px}
+.tf-detail-list{list-style:none;padding:0;margin:24px 0 30px}.tf-detail-list li{border-top:1px solid #d8e1e4;padding:14px 0;font-size:14px;line-height:1.75;color:#526873}.tf-detail-list strong{color:#07344e}
+.tf-route-panel{display:flex;align-items:center;justify-content:space-between;gap:35px}.tf-route-panel>div{max-width:710px;min-width:0}.tf-route-panel>.btn{flex-shrink:0}
+@media(max-width:900px){.tf-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tf-service-detail{gap:28px}.tf-route-panel{align-items:flex-start;flex-direction:column}}
+@media(max-width:768px){.tf-section-link-head{align-items:flex-start;flex-direction:column}.tf-service-detail{grid-template-columns:minmax(0,1fr)}.tf-content-page>.page-hero{padding-top:28px;padding-bottom:36px}.tf-content-page>.tf-tech,.tf-content-page>.calc-section,.tf-content-page>.google-reviews-section,.tf-content-page>.section:first-of-type{padding-top:28px}.tf-breadcrumb-wrap{padding-top:20px!important}.tf-page-heading{font-size:34px}.tf-section-link-head>.btn,.tf-route-panel>.btn,.tf-service-detail .btn{max-width:100%;white-space:normal;text-align:center}}
+@media(max-width:600px){.tf-project-grid{grid-template-columns:minmax(0,1fr);gap:25px}.tf-content-page .tf-project-tile img{aspect-ratio:4/5}.tf-project-tile figcaption{font-size:12px}}
+@media print{.tf-breadcrumb-wrap{display:none!important}.calc-section .tf-page-heading{font-size:22px}}
 
 /* Shared finishing touches. */
 .tf-file-note{padding:13px 20px;background:#edf2f2;border-bottom:1px solid #d5e0e2;color:#405b68;font:12px/1.6 system-ui,sans-serif}
@@ -191,7 +228,7 @@
  .tf-tech .tf-tech__canvas-wrap{height:330px;min-height:330px}.tf-tech__toolbar button{font-size:12px}.tf-tech__principle h3{font-size:23px}
  .calc-notice{padding:16px;font-size:12px;line-height:1.8}.calc-notice strong{font-size:13px}.calc-result .calc-no-offer{font-size:12px}.calc-result .calc-disclaimer{font-size:12px}
  .calc-eligibility summary{display:flex;flex-wrap:wrap;align-items:center;gap:5px 12px}.calc-summary-note{display:block;white-space:normal;margin-left:0}
- .google-reviews-grid{grid-template-columns:1fr}.google-review-card{padding:23px;min-height:230px}
+ .google-review-card{padding:23px;min-height:230px}
  .fab{right:12px;bottom:max(12px,env(safe-area-inset-bottom));border:1px solid #ffffff80}.fab__icon-box{width:44px;height:44px}
 }
 @media(max-width:640px){.bento{grid-template-columns:1fr!important;gap:15px}.bento>.bento__cell{min-height:325px!important}.bento__cell .bento__cell-text{margin-top:145px}.bento__cell h3{font-size:25px}}

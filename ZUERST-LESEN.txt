@@ -1,0 +1,9 @@
+THERMOFIS – Revision 10 – vollständige Mehrseitenvorschau
+
+Diesen ZIP-Inhalt vollständig entpacken. index.html im Browser öffnen.
+Alle 21 Seiten sind echte Dateien und über normale Links verbunden.
+Die Unterseitenordner und assets müssen neben index.html bleiben.
+
+Für Hostinger stattdessen Thermofis-Hostinger-Vorschau.zip verwenden.
+Am Handy die HTTPS-Testadresse verwenden; die Dateivorschau kann Skripte sperren.
+PHP-Förderstatus wird in dieser lokalen Vorschau nicht abgefragt.

@@ -98,7 +98,7 @@
     section.dataset.calcMounted = 'true';
     const form = section.querySelector('form');
     const output = section.querySelector('[data-calc-output]');
-    let monitor = {status: location.protocol === 'file:' ? 'not-configured' : 'loading'};
+    let monitor = {status: (location.protocol === 'file:' || globalThis.ThermofisStandalonePreview) ? 'not-configured' : 'loading'};
     let lastResult;
     const qs = selector => section.querySelector(selector);
     const val = name => form.elements.namedItem(name).value;
@@ -147,7 +147,7 @@
     const sources = qs('[data-calc-sources]');
     rules.sources.forEach(source => {const li = make('li'); const link = make('a', '', source.label); link.href = source.url; link.target = '_blank'; link.rel = 'noopener noreferrer'; li.append(link); sources.append(li);});
     render();
-    if (location.protocol !== 'file:') {
+    if ((location.protocol !== 'file:' && !globalThis.ThermofisStandalonePreview)) {
       const controller = new AbortController(); const timeout = setTimeout(() => controller.abort(), 4000);
       fetch('/assets/data/foerder-status.json', {cache: 'no-store', signal: controller.signal}).then(response => {if (response.status === 404) return {status: 'not-configured'}; if (!response.ok) throw new Error('status'); return response.json();}).then(data => {const accepted = ['checked', 'needs-review', 'unavailable', 'not-configured']; const validCheckedDate = data && isDateKey(data.checkedAt) && data.checkedAt <= dateKey(new Date()); monitor = data && accepted.includes(data.status) && (data.status === 'not-configured' || data.schemaVersion === 1) && (data.status !== 'checked' || validCheckedDate) ? data : {status: 'unavailable'};}).catch(() => {monitor = {status: 'unavailable'};}).finally(() => {clearTimeout(timeout); render();});
     }
